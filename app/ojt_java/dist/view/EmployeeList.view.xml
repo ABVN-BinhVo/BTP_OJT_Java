@@ -1,0 +1,81 @@
+<mvc:View
+    controllerName="ojtjava.controller.EmployeeList"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core">
+    <Page id="employeeListPage" title="Employee List">
+        <customHeader>
+            <core:Fragment fragmentName="ojtjava.view.fragment.Header" type="XML"/>
+        </customHeader>
+        <content>
+            <VBox id="employeeListVBox" class="sapUiResponsiveMargin">
+                <Title id="employeeListTitle" text="Employee List" titleStyle="H3" class="sapUiSmallMarginBottom"/>
+
+                <HBox id="departmentFilterHBox" alignItems="Center" class="sapUiSmallMarginBottom">
+                    <Label id="departmentFilterLabel" text="Department" width="100px" textAlign="End" class="sapUiTinyMarginEnd"/>
+                    <ComboBox id="departmentFilter" change="onDepartmentFilterChange" width="300px" items="{departments>/}">
+                        <core:Item id="departmentFilterItem" key="{departments>ID}" text="{departments>name}"/>
+                    </ComboBox>
+                </HBox>
+
+                <HBox id="roleFilterHBox" alignItems="Center" class="sapUiSmallMarginBottom">
+                    <Label id="roleFilterLabel" text="Role" width="100px" textAlign="End" class="sapUiTinyMarginEnd"/>
+                    <ComboBox id="roleFilter" change="onRoleFilterChange" width="300px" items="{roles>/}">
+                        <core:Item id="roleFilterItem" key="{roles>ID}" text="{roles>name}"/>
+                    </ComboBox>
+                </HBox>
+                <Table
+                    id="employeeTable"
+                    items="{path: '/Employees', parameters: { $expand: 'department,role' }}"
+                    alternateRowColors="true"
+                    fixedLayout="false"
+                    width="100%">
+                    <columns>
+                        <Column id="departmentColumn">
+                            <Text id="departmentColumnText" text="Department"/>
+                        </Column>
+                        <Column id="firstNameColumn">
+                            <Text id="firstNameColumnText" text="First Name"/>
+                        </Column>
+                        <Column id="lastNameColumn">
+                            <Text id="lastNameColumnText" text="Last Name"/>
+                        </Column>
+                        <Column id="emailColumn">
+                            <Text id="emailColumnText" text="Email"/>
+                        </Column>
+                        <Column id="roleColumn">
+                            <Text id="roleColumnText" text="Role"/>
+                        </Column>
+                        <Column id="hireDateColumn">
+                            <Text id="hireDateColumnText" text="Hire Date"/>
+                        </Column>
+                        <Column id="salaryColumn">
+                            <Text id="salaryColumnText" text="Salary"/>
+                        </Column>
+                        <Column id="actionsColumn">
+                            <Text id="actionsColumnText" text="Actions"/>
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem id="employeeListItem" type="Navigation" press="onEmployeePress">
+                            <cells>
+                                <Text id="departmentCell" text="{department/name}"/>
+                                <Text id="firstNameCell" text="{firstName}"/>
+                                <Text id="lastNameCell" text="{lastName}"/>
+                                <Link id="emailCell" text="{email}" href="mailto:{email}"/>
+                                <Text id="roleCell" text="{role/name}"/>
+                                <Text id="hireDateCell" text="{hireDate}"/>
+                                <Text id="salaryCell" text="{salary}"/>
+                                <Button id="actionsCell" icon="sap-icon://arrow-right" type="Transparent" press="onEmployeePress">
+                                    <customData>
+                                        <core:CustomData key="id" value="{ID}"/>
+                                    </customData>
+                                </Button>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

@@ -1,0 +1,112 @@
+<mvc:View
+    controllerName="ojtjava.controller.EmployeeInfo"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.m"
+    xmlns:u="sap.m.upload">
+    <Page id="employeeInfoPage" title="Employee Information">
+        <customHeader>
+            <core:Fragment fragmentName="ojtjava.view.fragment.Header" type="XML"/>
+        </customHeader>
+        <content>
+            <f:SimpleForm id="employeeInfoForm"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                title="Employee Information"
+                labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0"
+                columnsXL="1" columnsL="1" columnsM="1"
+                singleContainerFullSize="false"
+                class="sapUiResponsiveMargin">
+<f:content>
+
+    <!-- First Name -->
+    <Label id="firstNameLabel" text="First Name" required="true"/>
+    <Input id="firstNameInput"
+        value="{employee>/firstName}" 
+        valueState="{validation>/firstNameState}"
+        valueStateText="{validation>/firstNameStateText}"
+        placeholder="Enter first name" 
+        width="100%" 
+        required="true"/>
+
+    <!-- Last Name -->
+    <Label id="lastNameLabel" text="Last Name" required="true"/>
+    <Input id="lastNameInput"
+        value="{employee>/lastName}" 
+        valueState="{validation>/lastNameState}"
+        valueStateText="{validation>/lastNameStateText}"
+        placeholder="Enter last name" 
+        width="100%" 
+        required="true"/>
+
+    <!-- Email -->
+    <Label id="emailLabel" text="Email" required="true"/>
+    <Input id="emailInput"
+        value="{employee>/email}"
+        valueState="{validation>/emailState}" 
+        valueStateText="{validation>/emailStateText}" 
+        placeholder="Enter email address" 
+        width="100%" 
+        type="Email"
+        required="true"/>
+
+    <!-- Hire Date -->
+    <Label id="hireDateLabel" text="Hire Date" required="true"/>
+    <DatePicker id="hireDatePicker"
+        value="{employee>/hireDate}"
+        valueState="{validation>/hireDateState}" 
+        valueStateText="{validation>/hireDateStateText}" 
+        width="100%" 
+        displayFormat="dd MMM yyyy"
+        valueFormat="yyyy-MM-dd"
+        required="true"/>
+
+    <!-- Role -->
+    <Label id="roleLabel" text="Role" required="true"/>
+    <ComboBox id="roleComboBox"
+        width="100%" 
+        selectedKey="{employee>/role/ID}"
+        valueState="{validation>/roleState}" 
+        valueStateText="{validation>/roleStateText}"
+        required="true"
+        items="{
+            path: 'roles>/',
+            templateShareable: false
+        }">
+        <core:Item id="roleItem" key="{roles>ID}" text="{roles>name}"/>
+    </ComboBox>
+
+    <!-- Department -->
+    <Label id="departmentLabel" text="Department" required="true"/>
+    <ComboBox id="departmentComboBox"
+        width="100%"
+        selectedKey="{employee>/department/ID}"
+        valueState="{validation>/departmentState}" 
+        valueStateText="{validation>/departmentStateText}"
+        required="true"
+        items="{
+            path: 'departments>/',
+            templateShareable: false
+        }">
+        <core:Item id="departmentItem" key="{departments>ID}" text="{departments>name}"/>
+    </ComboBox>
+
+    <!-- Salary (read-only) -->
+    <Label id="salaryLabel" text="Salary"/>
+    <Input id="salaryInput"
+        value="{employee>/salary}" 
+        width="100%" 
+        editable="false"/>
+
+    <!-- Submit Button -->
+    <Label id="submitButtonLabel" text=""/>
+    <Button id="submitButton" text="Submit" type="Emphasized" press="onSubmit" class="sapUiMediumMarginTop"/>
+</f:content>
+            </f:SimpleForm>
+        </content>
+    </Page>
+</mvc:View>

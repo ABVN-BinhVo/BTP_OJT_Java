@@ -1,0 +1,43 @@
+{
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.Admin",
+      "description": "Admin"
+    },
+    {
+      "name": "$XSAPPNAME.Viewer",
+      "description": "Viewer"
+    }
+  ],
+  "attributes": [],
+  "role-templates": [
+    {
+      "name": "Admin",
+      "description": "generated",
+      "scope-references": [
+        "$XSAPPNAME.Admin"
+      ],
+      "attribute-references": []
+    },
+    {
+      "name": "Viewer",
+      "description": "generated",
+      "scope-references": [
+        "$XSAPPNAME.Viewer"
+      ],
+      "attribute-references": []
+    }
+  ],
+  "oauth2-configuration": {
+    "credential-types": [
+      "binding-secret",
+      "x509"
+    ],
+    "redirect-uris": [
+      "https://*.applicationstudio.cloud.sap/**",
+      "https://*.cfapps.us10-001.hana.ondemand.com/**"
+    ]
+  },
+  "xsappname": "OJT_Java",
+  "tenant-mode": "dedicated"
+}

@@ -1,0 +1,6 @@
+<mvc:View controllerName="ojtjava.controller.OJT_Java"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page1" title="{i18n>title}">
+    </Page>
+</mvc:View>

@@ -1,0 +1,6 @@
+ID,firstName,lastName,email,hireDate,role_ID,department_ID
+abcd1234-abcd-abcd-abcd-abcd12345678,John,Smith,john.smith@example.com,2020-01-15,11111111-1111-1111-1111-111111111111,aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa
+bcde2345-bcde-bcde-bcde-bcde23456789,Sarah,Johnson,sarah.johnson@example.com,2019-03-22,22222222-2222-2222-2222-222222222222,bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb
+cdef3456-cdef-cdef-cdef-cdef34567890,Michael,Williams,michael.w@example.com,2021-05-10,33333333-3333-3333-3333-333333333333,dddddddd-dddd-dddd-dddd-dddddddddddd
+defg4567-defg-defg-defg-defg45678901,Emily,Brown,emily.b@example.com,2018-11-07,44444444-4444-4444-4444-444444444444,cccccccc-cccc-cccc-cccc-cccccccccccc
+efgh5678-efgh-efgh-efgh-efgh56789012,David,Jones,david.jones@example.com,2022-02-18,55555555-5555-5555-5555-555555555555,aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa

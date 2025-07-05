@@ -1,0 +1,13 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Toolbar id="appHeader" height="3rem" design="Solid">
+        <content>
+            <Image id= 'img' src="./img/Abeam_Logo.jpg" width="24px"/>
+            <Title id = 'title' text="Abeam Consulting Vietnam" level="H3" class="sapUiTinyMarginBegin"/>
+            <ToolbarSpacer id= 'toolbarspacer' />
+            <Button id='inputFormButton' text="Input Form" press=".onNavToInputForm"/>
+            <Button id='employeeListButton' text="Employee List" press=".onNavToEmployeeList" class="sapUiTinyMarginBegin"/>
+        </content>
+    </Toolbar>
+</core:FragmentDefinition>

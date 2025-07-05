@@ -1,0 +1,19 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Dialog
+        id="confirmationDialog"
+        title="Confirmation"
+        icon="sap-icon://question-mark"
+        type="Message">
+        <content>
+            <Text id="confirmationMessage" text="Are you want to submit the information?" class="sapUiSmallMarginTop sapUiSmallMarginBottom"/>
+        </content>
+        <beginButton>
+            <Button id="confirmButton" text="OK" type="Emphasized" press="onConfirmSubmit"/>
+        </beginButton>
+        <endButton>
+            <Button id="cancelButton" text="Cancel" press="onCancelSubmit"/>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

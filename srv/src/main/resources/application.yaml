@@ -1,0 +1,95 @@
+
+---
+spring:
+  config.activate.on-profile: default
+  sql.init.platform: h2
+cds:
+  data-source.auto-config.enabled: false
+  security:
+    mock:
+      users:
+        Viewer:
+          roles:
+            - Viewer
+        Admin:
+          roles:
+            - Admin
+---
+spring:
+  config.activate.on-profile: cloud
+cds:
+  data:
+      db:
+        vcapp: true
+  index-page.enabled: true
+  
+  sql.hana.search:
+    fuzzy: true
+    fuzzinessThreshold: 0.9
+
+---
+spring:
+  datasource:
+    password: Cg1j0HxA6bksYkOoAaOMkPQw.5H4DlW8RdMROpsVPe4cqaAyoPR.3-vklzdMNIzqSyPBQdLSJQzpkS2sHt_HVxlHRRGVvU-JyAr6_kiYjVhlX3PyVpMpTraXYIfmYouS
+    driver-class-name: com.sap.db.jdbc.Driver
+    url: jdbc:sap://ac0796b7-7bd7-427a-9a2b-78a9ae2ff713.hana.trial-us10.hanacloud.ondemand.com:443?encrypt=true&validateCertificate=true&currentschema=09FE4C84C3A84EBB89A51389570767F7
+    hikari:
+      maximum-pool-size: 5
+    username: 09FE4C84C3A84EBB89A51389570767F7_CZYDV1E6P5VJ7SE3KHH9EXUMX_RT
+cds:
+  datasource:
+    auto-config:
+      enabled: false
+management:
+  endpoint:
+    health:
+      show-components: always
+      probes:
+        enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health
+  health:
+    defaults:
+      enabled: false
+    ping:
+      enabled: true
+    db:
+      enabled: true
+---
+management:
+  endpoint:
+    health:
+      show-components: always
+      probes:
+        enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health
+  health:
+    defaults:
+      enabled: false
+    ping:
+      enabled: true
+    db:
+      enabled: true
+---
+management:
+  endpoint:
+    health:
+      show-components: always
+      probes:
+        enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health
+  health:
+    defaults:
+      enabled: false
+    ping:
+      enabled: true
+    db:
+      enabled: true

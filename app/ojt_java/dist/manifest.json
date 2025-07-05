@@ -1,0 +1,128 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "ojtjava",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.18.1",
+      "toolsId": "1557736b-4709-46aa-9f84-4d87f86a16d1"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/employee/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.136.2",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "ojtjava.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "ojtjava.view",
+        "async": true,
+        "viewPath": "ojtjava.view"
+      },
+      "routes": [
+        {
+          "name": "EmployeeList",
+          "pattern": ":?query:",
+          "target": [
+            "EmployeeList"
+          ]
+        },
+        {
+          "name": "EmployeeInfo",
+          "pattern": "EmployeeInfo/{id}",
+          "target": [
+            "EmployeeInfo"
+          ]
+        }
+      ],
+      "targets": {
+        "EmployeeList": {
+          "id": "EmployeeList",
+          "name": "EmployeeList"
+        },
+        "EmployeeInfo": {
+          "id": "EmployeeInfo",
+          "name": "EmployeeInfo"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "ojtjava.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  }
+}

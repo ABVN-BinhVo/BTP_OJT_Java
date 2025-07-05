@@ -1,0 +1,20 @@
+{
+  "requires": {
+    "[hybrid]": {
+      "db": {
+        "binding": {
+          "type": "cf",
+          "apiEndpoint": "https://api.cf.us10-001.hana.ondemand.com",
+          "org": "d70b7953trial",
+          "space": "dev",
+          "instance": "OJT_Java-db",
+          "key": "OJT_Java-db-key"
+        },
+        "kind": "hana",
+        "vcap": {
+          "name": "db"
+        }
+      }
+    }
+  }
+}
