@@ -6,7 +6,8 @@
     "db": "hana",
     "destinations": true,
     "[hybrid]": {
-      "db": "hana"
+      "db": "hana",
+      "auth": "xsuaa"
     },
     "html5-runtime": true
   }
